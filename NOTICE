@@ -1,0 +1,21 @@
+Agent Runtime Services
+
+This project was extracted from Agent-Interaction-Bridge and retains that
+project's MIT copyright notice.
+
+Agent-Interaction-Bridge was forked from:
+
+  zarazhangrui/feishu-claude-code-bridge
+  https://github.com/zarazhangrui/feishu-claude-code-bridge
+
+The upstream project is distributed under the MIT License with the copyright
+notice "Copyright (c) 2026 Lark Channel Bridge contributors".
+
+Agent Runtime Services keeps the upstream notices in LICENSE and adds its own
+MIT copyright notice for this package.
+
+Reference project studied for current-path product patterns; no code is copied
+from it in this repository:
+
+  hachiwii/twinny
+  https://github.com/hachiwii/twinny

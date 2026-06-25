@@ -1,0 +1,81 @@
+{
+  "name": "agent-runtime-services",
+  "version": "0.1.0",
+  "description": "Local-first runtime service plane for domain agents and build agents with Runtime Core capabilities and memory substrate Agent Services",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudsbeyond/agent-runtime-services.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cloudsbeyond/agent-runtime-services/issues"
+  },
+  "homepage": "https://github.com/cloudsbeyond/agent-runtime-services#readme",
+  "type": "module",
+  "bin": {
+    "agent-runtime-services": "./bin/agent-runtime-services.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "bin",
+    "architecture",
+    "examples",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "rm -rf dist && tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --dir test",
+    "test:acceptance": "vitest run test/external-runtime-services.acceptance.test.ts test/remote-provider-config.acceptance.test.ts test/remote-runtime-services.acceptance.test.ts test/cli-rpc-smoke.test.ts",
+    "prepublishOnly": "pnpm test:acceptance && pnpm test && pnpm typecheck && pnpm build && npm pack --dry-run --ignore-scripts"
+  },
+  "dependencies": {
+    "@lancedb/lancedb": "^0.29.0",
+    "apache-arrow": "18.1.0",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "protobufjs"
+    ],
+    "overrides": {
+      "rollup": "npm:@rollup/wasm-node@4.60.2"
+    }
+  },
+  "keywords": [
+    "agent",
+    "agent-runtime",
+    "runtime-services",
+    "local-first",
+    "json-rpc",
+    "typescript",
+    "models",
+    "artifacts",
+    "artifact-store",
+    "memory-substrate",
+    "vector-search",
+    "vectors",
+    "resources",
+    "secrets"
+  ],
+  "license": "MIT"
+}
